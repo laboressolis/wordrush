@@ -22,7 +22,7 @@ The goal is simple: You have type a set amount of correct words as fast as you c
    ```bash
    cd WordRush
    ```
-3. Change the mysql config in main.py
+3. Change the mysql config in `main.py`.
 
     ![changes](https://files.catbox.moe/auhjdi.png)
 
