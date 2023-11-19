@@ -4,28 +4,26 @@ try:
     import time
     import os
     import sys
-    from pprint import pprint
     
-    print("INSTALLATION INSTRUCTIONS.")
-    print("!!change mysql config in line 16 and 23")
-    print("!!make sure that the file 'words.txt' is in the same directory as the python file")
-    print("!!you can change database name in line 14")
-    x = input("If everything is okay then input anything to continue. \n")
+    x = input("Input anything to initialize the game. \n")
     
     dbname = 'gamedatabase'
-    # Database config for auto set up ref line 35 to 134
+    db_password = 'asdf'
+    db_user = 'root'
+    db_host = 'localhost'
+
     db_config = {
-        "host": "localhost",
-        "user": "root",
-        "password": "asdf",
+        "host": db_host,
+        "user": db_user,
+        "password": db_password,
         "auth_plugin": "mysql_native_password"
     }
-    # Main connection to database 
+ 
     dbnamed_config = {
-        "host": "localhost",
-        "user": "root",
-        "password": "asdf",
-        "database":f'{dbname}',
+        "host": db_host,
+        "user": db_user,
+        "password": db_password,
+        "database":dbname,
         "auth_plugin": "mysql_native_password"
     }
     
@@ -34,7 +32,6 @@ try:
     
     def typing(message):
         print("")
-        #print(message) # Eliminate this after testing...
         for word in message:
             time.sleep(random.choice([0.3, 0.11, 0.08, 0.07,0.07, 0.07, 0.06, 0.06, 0.05, 0.01]))
             sys.stdout.write(word)
@@ -554,17 +551,7 @@ except Exception as e:
     print("Restart Again")
     print(f"ERROR: {e}")
     x = input('Input Anything to Continue.\n')
-
-
-# 
-'''
-WordList - https://github.com/dolph/dictionary/blob/master/popular.txt
-AsciiArt - http://www.patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
-
-'''
-
 # BackSQL Commands
-# DATETIME to TIMESTAMP on MYSQL 5.5
 '''
 
 CREATE TABLE Users (
